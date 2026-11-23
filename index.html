@@ -1,0 +1,1388 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Meu Plano de Estudos</title>
+    <style>
+      :root {
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        --bg: #f4f5f8;
+        --cd: #fff;
+        --tx: #161b2e;
+        --mu: #6a728a;
+        --bd: #e2e5ee;
+        --ac: #1f4fd1;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0f1220;
+          --cd: #191e33;
+          --tx: #e9ecf7;
+          --mu: #96a0bd;
+          --bd: #293050;
+          --ac: #7f9bff;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0f1220;
+        --cd: #191e33;
+        --tx: #e9ecf7;
+        --mu: #96a0bd;
+        --bd: #293050;
+        --ac: #7f9bff;
+      }
+      html {
+        scroll-padding-top: env(safe-area-inset-top, 0px);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--tx);
+        font:
+          16px/1.45 system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          sans-serif;
+        padding-bottom: 84px;
+      }
+      main {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 16px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 4px 0 2px;
+      }
+      h2 {
+        font-size: 15px;
+        margin: 22px 0 8px;
+        color: var(--mu);
+        font-weight: 600;
+      }
+      .mu {
+        color: var(--mu);
+        font-size: 14px;
+      }
+      .card {
+        background: var(--cd);
+        border: 1px solid var(--bd);
+        border-radius: 14px;
+        padding: 14px;
+        margin-bottom: 10px;
+      }
+      .hd {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+      .hd i {
+        width: 6px;
+        align-self: stretch;
+        border-radius: 3px;
+        flex: none;
+      }
+      .hd b {
+        flex: 1;
+      }
+      .hd span {
+        font-weight: 700;
+      }
+      .bar {
+        height: 8px;
+        background: var(--bd);
+        border-radius: 6px;
+        overflow: hidden;
+        margin-top: 8px;
+      }
+      .bar div {
+        height: 100%;
+        border-radius: 6px;
+        transition: width 0.3s;
+      }
+      .big {
+        font-size: 56px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin: 14px 0;
+        font-variant-numeric: tabular-nums;
+      }
+      .hero {
+        display: flex;
+        gap: 12px;
+        align-items: baseline;
+        flex-wrap: wrap;
+      }
+      .hero b {
+        font-size: 40px;
+        line-height: 1;
+      }
+      button,
+      select,
+      input {
+        font: inherit;
+        color: inherit;
+      }
+      button {
+        background: var(--ac);
+        color: #fff;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 16px;
+        cursor: pointer;
+        min-height: 44px;
+      }
+      button.g {
+        background: transparent;
+        color: var(--tx);
+        border: 1px solid var(--bd);
+      }
+      button:focus-visible,
+      input:focus-visible,
+      select:focus-visible {
+        outline: 2px solid var(--ac);
+        outline-offset: 2px;
+      }
+      input,
+      select,
+      textarea {
+        background: var(--bg);
+        border: 1px solid var(--bd);
+        border-radius: 10px;
+        padding: 10px;
+        width: 100%;
+        min-height: 44px;
+      }
+      textarea {
+        font: 12px monospace;
+        color: inherit;
+        height: 110px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+      .add {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+      }
+      .add button {
+        flex: none;
+      }
+      .tp {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 0;
+        border-top: 1px solid var(--bd);
+      }
+      .tp input {
+        width: 22px;
+        min-height: 22px;
+        height: 22px;
+        flex: none;
+      }
+      .tp span {
+        flex: 1;
+      }
+      .tp .dn {
+        text-decoration: line-through;
+        color: var(--mu);
+      }
+      .tp button {
+        background: none;
+        color: var(--mu);
+        padding: 0 8px;
+        min-height: 32px;
+      }
+      .tt {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .plus {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        padding: 0;
+        font-size: 26px;
+        line-height: 1;
+        flex: none;
+      }
+      .ib {
+        background: none;
+        color: var(--mu);
+        border: 0;
+        padding: 0 6px;
+        min-height: 32px;
+        font-size: 18px;
+      }
+      .ib.arm {
+        color: #d64545;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .sb {
+        border-top: 1px solid var(--bd);
+        padding: 6px 0;
+      }
+      .sb .hd {
+        padding: 6px 0;
+        gap: 8px;
+      }
+      .sb .hd b {
+        font-weight: 600;
+      }
+      .sb .hd .dn {
+        text-decoration: line-through;
+        color: var(--mu);
+      }
+      .hd input[type="checkbox"] {
+        width: 22px;
+        min-height: 22px;
+        height: 22px;
+        flex: none;
+      }
+      .sb .tp {
+        padding-left: 8px;
+      }
+      .mt {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+      .mt input {
+        width: 80px;
+      }
+      .cg {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 10px;
+      }
+      .cc {
+        background: var(--cd);
+        border: 1px solid var(--bd);
+        border-radius: 14px;
+        padding: 10px;
+        text-align: center;
+        font-size: 13px;
+      }
+      .cv {
+        display: flex;
+        gap: 8px;
+        height: 90px;
+        align-items: flex-end;
+        justify-content: center;
+        margin: 8px 0;
+      }
+      .cv div {
+        width: 26px;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+      .cv i {
+        display: block;
+        width: 100%;
+        border-radius: 5px 5px 0 0;
+        min-height: 2px;
+      }
+      .bt {
+        display: inline-flex;
+        align-items: center;
+        background: var(--ac);
+        color: #fff;
+        border-radius: 10px;
+        padding: 10px 16px;
+        min-height: 44px;
+        text-decoration: none;
+      }
+      .bt.g {
+        background: transparent;
+        color: var(--tx);
+        border: 1px solid var(--bd);
+      }
+      .fg {
+        display: grid;
+        gap: 8px;
+        margin: 8px 0;
+      }
+      nav button {
+        font-size: 14px;
+      }
+      .tp small {
+        display: block;
+        color: var(--mu);
+        font-size: 12px;
+        line-height: 1.35;
+      }
+      .lg {
+        display: flex;
+        justify-content: space-between;
+        padding: 6px 0;
+        border-top: 1px solid var(--bd);
+        font-size: 14px;
+      }
+      .lg span {
+        color: var(--mu);
+      }
+      nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        background: var(--cd);
+        border-top: 1px solid var(--bd);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      nav button {
+        flex: 1;
+        background: none;
+        color: var(--mu);
+        border-radius: 0;
+        padding: 14px 4px;
+        min-height: 52px;
+      }
+      nav button.on {
+        color: var(--ac);
+        font-weight: 700;
+      }
+      #toast {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+        background: var(--tx);
+        color: var(--bg);
+        padding: 10px 16px;
+        border-radius: 10px;
+        display: none;
+        z-index: 9;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="v"></main>
+    <div id="toast"></div>
+    <nav>
+      <button data-t="p">Painel</button><button data-t="m">Matérias</button
+      ><button data-t="t">Foco</button><button data-t="v">Provas</button
+      ><button data-t="a">Ajustes</button>
+    </nav>
+    <script>
+      const DEF = [
+        {
+          id: "rl",
+          n: "Raciocínio Lógico",
+          b: 1,
+          c: "#2b5fd9",
+          t: [
+            [
+              "Proposições",
+              "simples e composta, valor lógico, princípios, negação, conectivos (e, ou, ou exclusivo, se...então, se e somente se)",
+            ],
+            [
+              "Tabela-verdade",
+              "construção, número de linhas, negação, conjunção, disjunção, condicional, bicondicional",
+            ],
+            [
+              "Equivalências lógicas",
+              "De Morgan, negação do condicional, equivalência do condicional, dupla negação",
+            ],
+            [
+              "Argumentação lógica",
+              "premissas, conclusão, argumento válido e inválido, silogismos",
+            ],
+            [
+              "Teoria dos conjuntos",
+              "união, interseção, diferença, complementar, subconjuntos, Venn",
+            ],
+            [
+              "Porcentagem",
+              "aumento, desconto, porcentagem sucessiva, regra de três",
+            ],
+            [
+              "Razão e proporção",
+              "grandezas direta e inversamente proporcionais",
+            ],
+            [
+              "Matemática básica",
+              "operações, frações, decimais, potenciação, radiciação, MMC, MDC",
+            ],
+            ["Sequências", "numéricas, padrões, PA, PG"],
+            [
+              "Probabilidade e combinatória",
+              "contagem, permutação, arranjo, combinação, probabilidade básica",
+            ],
+          ],
+        },
+        {
+          id: "inf",
+          n: "Informática",
+          b: 1,
+          c: "#2b5fd9",
+          t: [
+            [
+              "Conceitos básicos",
+              "hardware, software, firmware, periféricos, CPU, RAM, ROM, HD, SSD",
+            ],
+            [
+              "Sistemas operacionais",
+              "Windows e Linux: área de trabalho, arquivos e pastas, extensões, atalhos, usuários, lixeira",
+            ],
+            [
+              "Microsoft Word",
+              "formatação, margens, cabeçalho e rodapé, tabelas, localizar e substituir, impressão",
+            ],
+            [
+              "★ Microsoft Excel",
+              "fórmulas, SOMA, MÉDIA, MÍNIMO, MÁXIMO, SE, CONT.SE, SOMASE, referências, gráficos, filtros",
+            ],
+            [
+              "PowerPoint",
+              "slides, layouts, transições, animações, apresentação",
+            ],
+            [
+              "Internet",
+              "intranet, extranet, navegadores, URL, HTTP/HTTPS, download/upload, e-mail",
+            ],
+            [
+              "★ Segurança da informação",
+              "vírus, worm, trojan, spyware, ransomware, phishing, spam, engenharia social, firewall, backup, 2FA",
+            ],
+            [
+              "Computação em nuvem",
+              "Drive, OneDrive, Dropbox, SaaS, PaaS, IaaS",
+            ],
+            [
+              "Redes",
+              "LAN, WAN, Wi-Fi, roteador, switch, modem, IP, DNS, TCP/IP",
+            ],
+            [
+              "Atalhos de teclado",
+              "Ctrl+C, V, X, Z, Y, A, F, P, S, N; Alt+Tab; Windows+D",
+            ],
+          ],
+        },
+        {
+          id: "lp",
+          n: "Língua Portuguesa",
+          b: 2,
+          c: "#d99a00",
+          t: [
+            [
+              "Interpretação de texto",
+              "tema, ideia principal, inferência, explícito e implícito, finalidade",
+            ],
+            ["Tipologia e gêneros textuais", ""],
+            [
+              "Classes de palavras",
+              "substantivo, adjetivo, artigo, pronome, verbo, advérbio, preposição, conjunção, numeral, interjeição",
+            ],
+            ["Verbos", "tempos, modos, vozes ativa, passiva e reflexiva"],
+            [
+              "Sintaxe",
+              "sujeito, predicado, objetos, complemento nominal, adjuntos, aposto, vocativo",
+            ],
+            ["Concordância", "verbal e nominal"],
+            ["Regência", "verbal e nominal"],
+            ["Crase", "quando ocorre, quando não ocorre, casos facultativos"],
+            [
+              "Pontuação",
+              "vírgula, ponto, ponto e vírgula, dois-pontos, travessão, parênteses",
+            ],
+            [
+              "Semântica",
+              "sinônimos, antônimos, polissemia, homônimos, parônimos, denotação, conotação, ambiguidade",
+            ],
+            [
+              "Ortografia",
+              "acentuação, novo acordo, porque/por que, mal/mau, há/a, onde/aonde, senão/se não",
+            ],
+          ],
+        },
+        {
+          id: "hp",
+          n: "História de Pernambuco",
+          b: 2,
+          c: "#d99a00",
+          t: [
+            [
+              "Período colonial",
+              "capitanias, Duarte Coelho, economia açucareira, engenhos, sociedade colonial",
+            ],
+            [
+              "★ Invasões holandesas",
+              "Cia. das Índias Ocidentais, Nassau, Recife, Insurreição Pernambucana, Guararapes, expulsão",
+            ],
+            ["Guerra dos Mascates", "contexto, Olinda x Recife, consequências"],
+            [
+              "Revolução de 1817",
+              "causas, república, participantes, repressão",
+            ],
+            [
+              "Confederação do Equador (1824)",
+              "separação, Frei Caneca, repressão",
+            ],
+            [
+              "Revolução Praieira (1848)",
+              "Partido da Praia, liberalismo, consequências",
+            ],
+            [
+              "Pernambuco na República",
+              "República Velha, coronelismo, 1930, Era Vargas",
+            ],
+            [
+              "Pernambuco no século XX",
+              "industrialização, urbanização, movimentos sociais",
+            ],
+            [
+              "Cultura pernambucana",
+              "frevo, maracatu, caboclinho, ciranda, carnaval, patrimônio",
+            ],
+            [
+              "Personagens",
+              "Duarte Coelho, Nassau, João Fernandes Vieira, Vidal de Negreiros, Henrique Dias, Felipe Camarão, Frei Caneca, Joaquim Nabuco, Padre Roma",
+            ],
+          ],
+        },
+        {
+          id: "dc",
+          n: "Direito Constitucional",
+          b: 3,
+          c: "#d64545",
+          t: [
+            ["Constituição", "conceito, classificação"],
+            [
+              "Princípios fundamentais",
+              "arts. 1º a 4º: fundamentos, objetivos, relações internacionais",
+            ],
+            [
+              "★ Art. 5º: direitos e garantias",
+              "vida, liberdade, igualdade, legalidade, expressão, religião, reunião, associação, intimidade, domicílio, sigilo, prisão",
+            ],
+            [
+              "Remédios constitucionais",
+              "habeas corpus, habeas data, mandado de segurança, mandado de injunção, ação popular",
+            ],
+            [
+              "Direitos sociais (art. 6º)",
+              "educação, saúde, alimentação, trabalho, moradia, transporte, lazer, segurança, previdência",
+            ],
+            [
+              "Nacionalidade",
+              "nato, naturalizado, cargos privativos de nato, perda",
+            ],
+            [
+              "Direitos políticos",
+              "sufrágio, voto, alistamento, elegibilidade, inelegibilidade, perda e suspensão",
+            ],
+            [
+              "★ Administração Pública (art. 37)",
+              "LIMPE, concurso, cargo/emprego/função, acumulação, servidor, responsabilidade do Estado",
+            ],
+            [
+              "Segurança Pública (art. 144)",
+              "PF, PRF, PFF, polícias civis e militares, bombeiros, guardas municipais",
+            ],
+          ],
+        },
+        {
+          id: "dh",
+          n: "Direitos Humanos e Leg. Extravagante",
+          b: 3,
+          c: "#d64545",
+          t: [
+            [
+              "Declaração Universal (DUDH)",
+              "dignidade, igualdade, liberdade, vida, tortura, presunção de inocência, devido processo legal",
+            ],
+            [
+              "Sistema internacional",
+              "ONU, tratados, convenções, direitos humanos x fundamentais",
+            ],
+            [
+              "Sistema Interamericano",
+              "OEA, Comissão, Corte, Pacto de San José",
+            ],
+            [
+              "Abuso de Autoridade (Lei 13.869/2019)",
+              "sujeitos, condutas, finalidade específica, responsabilização, efeitos da condenação",
+              1,
+            ],
+            [
+              "Maria da Penha (Lei 11.340/2006)",
+              "tipos de violência, medidas protetivas, atendimento à vítima",
+              1,
+            ],
+            [
+              "ECA (Lei 8.069/1990)",
+              "direitos fundamentais, ato infracional, medidas socioeducativas, Conselho Tutelar, crimes",
+              1,
+            ],
+            [
+              "Desarmamento (Lei 10.826/2003)",
+              "posse, porte, registro, crimes, Sinarm",
+              1,
+            ],
+            [
+              "Drogas (Lei 11.343/2006)",
+              "usuário, tráfico, associação, penas",
+              1,
+            ],
+            [
+              "Crimes Hediondos (Lei 8.072/1990)",
+              "conceito, equiparados, consequências",
+              1,
+            ],
+            [
+              "Tortura (Lei 9.455/1997)",
+              "condutas, sujeitos, penas, aumentos",
+              1,
+            ],
+            ["Racismo (Lei 7.716/1989)", "condutas previstas", 1],
+            [
+              "Crimes Ambientais (Lei 9.605/1998)",
+              "crimes, responsabilidade, sanções",
+              1,
+            ],
+            [
+              "Pessoa com Deficiência (Lei 13.146/2015)",
+              "igualdade, acessibilidade, crimes",
+              1,
+            ],
+          ],
+        },
+      ];
+      const CY = [
+        ["Ciclo 1", "Raciocínio Lógico e Informática", ["rl", "inf"]],
+        ["Ciclo 2", "Português e História de PE", ["lp", "hp"]],
+        ["Ciclo 3", "Constitucional e Direitos Humanos", ["dc", "dh"]],
+        ["Ciclo 4", "Legislação Extravagante", ["dh"]],
+      ];
+      const cp = (c, i) => {
+        let a = [];
+        c[2]
+          .filter((id) => S.topics[id])
+          .forEach(
+            (id) =>
+              (a = a.concat(
+                lf(
+                  S.topics[id].filter(
+                    (x) => id !== "dh" || (i === 3 ? x.l : !x.l),
+                  ),
+                ),
+              )),
+          );
+        return a.length
+          ? Math.round((a.filter((x) => x.d).length / a.length) * 100)
+          : 100;
+      };
+      const K = "estudos-pe-v2",
+        $ = (s) => document.querySelector(s);
+      const INEP =
+        "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/enem/provas-e-gabaritos";
+      const DEFP = [
+        {
+          id: "enem2026",
+          t: "ENEM 2026 · Provas e gabaritos oficiais",
+          b: "Inep",
+          o: "ENEM",
+          c: "",
+          a: "2026",
+          m: "Todas as áreas",
+          l: INEP,
+          g: "",
+          n: "Na página do Inep, escolha o ano 2026, o dia e a cor do caderno.",
+        },
+        {
+          id: "enemold",
+          t: "ENEM · Acervo de provas anteriores",
+          b: "Inep",
+          o: "ENEM",
+          c: "",
+          a: "2009 a 2025",
+          m: "Todas as áreas",
+          l: INEP,
+          g: "",
+          n: "Provas e gabaritos de edições anteriores, na mesma página do Inep.",
+        },
+      ];
+      const ATL =
+        "copiar (Ctrl+C), colar (Ctrl+V), recortar (Ctrl+X), desfazer (Ctrl+Z), refazer (Ctrl+Y), selecionar tudo (Ctrl+A), localizar (Ctrl+F), imprimir (Ctrl+P), salvar (Ctrl+S), novo (Ctrl+N), Alt+Tab, Windows+D";
+      let S,
+        D = [],
+        tab = "p",
+        open = null,
+        addM = 0,
+        delArm = null,
+        OS = {},
+        pq = "",
+        pa = "",
+        pb = "",
+        addP = 0;
+      function load() {
+        try {
+          S = JSON.parse(localStorage.getItem(K));
+        } catch (e) {}
+        if (!S) S = { topics: {}, log: [], exam: "", goal: 600 };
+        if (!S.disc) S.disc = DEF.map(({ id, n, b, c }) => ({ id, n, b, c }));
+        if (!S.provas) S.provas = DEFP.map((x) => ({ ...x }));
+        D = S.disc;
+        D.forEach((d) => {
+          if (!S.topics[d.id]) {
+            const f = DEF.find((x) => x.id === d.id);
+            S.topics[d.id] = f
+              ? f.t.map((t) => ({ t: t[0], s: t[1], l: t[2] || 0, d: 0 }))
+              : [];
+          }
+        });
+        D.forEach((d) => {
+          if (d.w == null) d.w = 6;
+          S.topics[d.id] = S.topics[d.id].map((x) =>
+            x.k
+              ? x
+              : {
+                  t: x.t,
+                  l: x.l || 0,
+                  d: x.s ? 0 : x.d || 0,
+                  k: x.s
+                    ? (x.s.startsWith("Ctrl+C, V") ? ATL : x.s)
+                        .split(/[,;](?![^()]*\))/)
+                        .map((z) => ({ t: z.trim(), d: x.d || 0 }))
+                        .filter((z) => z.t)
+                    : [],
+                },
+          );
+        });
+        if (!D.find((d) => d.id === T.disc)) T.disc = D[0] ? D[0].id : "";
+        if (S.theme) document.documentElement.dataset.theme = S.theme;
+      }
+      function save() {
+        try {
+          localStorage.setItem(K, JSON.stringify(S));
+        } catch (e) {}
+      }
+      const esc = (s) =>
+        String(s).replace(
+          /[&<>"]/g,
+          (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+        );
+      const iso = (d = new Date()) =>
+        new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+      const wkStart = () => {
+        const d = new Date();
+        d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+        return iso(d);
+      };
+      const lf = (a) => a.flatMap((x) => (x.k.length ? x.k : [x]));
+      const wH = (d) => (d.w == null ? 6 : d.w),
+        dow = () => ((new Date().getDay() + 6) % 7) + 1,
+        doy = () =>
+          Math.floor(
+            (new Date() - new Date(new Date().getFullYear(), 0, 0)) / 864e5,
+          );
+      const GT = () => D.reduce((a, d) => a + wH(d) * 60, 0),
+        tdy = () =>
+          S.log.filter((l) => l.day === iso()).reduce((a, l) => a + l.m, 0);
+      const SC = ["#d64545", "#d49400", "#2f9e6b"],
+        SL = ["Atrasada", "Na média", "No ritmo"];
+      const st = (done, exp) => {
+        if (!exp) return 2;
+        const r = done / exp;
+        return r >= 1 ? 2 : r >= 0.6 ? 1 : 0;
+      };
+      function ch(t, done, goal, exp) {
+        const mx = Math.max(done, goal, 1),
+          s = st(done, exp);
+        return `<div class="cc"><b>${t}</b><div class="cv"><div title="Meta"><i style="height:${(goal / mx) * 100}%;background:var(--bd)"></i></div><div title="Feito"><i style="height:${(done / mx) * 100}%;background:${SC[s]}"></i></div></div><div class="mu">Meta ${fmt(Math.round(goal))}<br>Feito ${fmt(done)}</div><b style="color:${SC[s]}">${SL[s]}</b></div>`;
+      }
+      const WX = (c) =>
+        c === 0
+          ? "☀️ Céu limpo"
+          : c < 4
+            ? "⛅ Parcialmente nublado"
+            : c < 50
+              ? "🌫️ Neblina"
+              : c < 70
+                ? "🌧️ Chuva"
+                : c < 80
+                  ? "❄️ Neve"
+                  : c < 90
+                    ? "🌦️ Pancadas de chuva"
+                    : "⛈️ Trovoadas";
+      const wxc = () => {
+        const w = S.wc,
+          d = new Date().toLocaleDateString("pt-BR", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+          });
+        return `<div class="card"><div class="hero"><b style="font-size:34px">${w ? Math.round(w.t) + "°C" : "--°C"}</b><span class="mu">${w ? WX(w.c) + " · mín " + Math.round(w.mn) + "° / máx " + Math.round(w.mx) + "°" : "Clima indisponível no momento"}</span></div><div style="margin-top:8px;font-weight:600">${d.charAt(0).toUpperCase() + d.slice(1)}</div><div class="mu">${esc(S.city || "Camaragibe - Pernambuco")}</div></div>`;
+      };
+      const wl = (d) => {
+        const g = wH(d) * 60,
+          w = mins(d.id, wkStart()),
+          s = st(w, (g * dow()) / 7);
+        return `<div class="mu" style="margin-top:8px">${d.b ? "10 questões · " : ""}Semana: ${fmt(w)} de ${fmt(Math.round(g))} · <b style="color:${SC[s]}">${SL[s]}</b></div>${bar(Math.min(100, Math.round((w / g) * 100)), SC[s])}`;
+      };
+      const pct = (d) => {
+        const a = lf(S.topics[d.id]);
+        return a.length
+          ? Math.round((a.filter((x) => x.d).length / a.length) * 100)
+          : 0;
+      };
+      const mins = (id, from) =>
+        S.log
+          .filter((l) => (!id || l.d === id) && (!from || l.day >= from))
+          .reduce((a, l) => a + l.m, 0);
+      const fmt = (m) =>
+        m >= 60
+          ? Math.floor(m / 60) +
+            "h" +
+            (m % 60 ? String(m % 60).padStart(2, "0") : "")
+          : m + " min";
+      const dn = (id) =>
+        (D.find((d) => d.id === id) || { n: "Matéria excluída" }).n;
+      const bar = (p, c) =>
+        `<div class="bar"><div style="width:${p}%;background:${c}"></div></div>`;
+      function toast(m) {
+        const t = $("#toast");
+        t.textContent = m;
+        t.style.display = "block";
+        setTimeout(() => (t.style.display = "none"), 2500);
+      }
+
+      function vP() {
+        const tot = Math.round(
+            D.reduce((a, d) => a + pct(d), 0) / (D.length || 1),
+          ),
+          wk = wkStart(),
+          wm = mins(0, wk);
+        const ci = CY.findIndex((c, i) => cp(c, i) < 100),
+          cc = CY[ci];
+        const sug = cc
+          ? cc[2]
+              .map((id) => D.find((d) => d.id === id))
+              .filter(Boolean)
+              .sort((a, b) => pct(a) - pct(b))[0]
+          : null;
+        let days = S.exam
+          ? Math.ceil((new Date(S.exam + "T00:00") - new Date()) / 864e5)
+          : null;
+        let h = `<h1>Meu plano de estudos</h1>` + wxc();
+        h += `<div class="card"><div class="hero"><b>${tot}%</b><span class="mu">do conteúdo concluído</span></div>${bar(tot, "var(--ac)")}
+ <p class="mu" style="margin:10px 0 0">${days === null ? "Defina a data da prova em Ajustes." : days > 0 ? `Faltam <b style="color:var(--tx)">${days} dias</b> para a prova.` : days === 0 ? "A prova é hoje. Boa sorte!" : "A data da prova já passou."}</p></div>`;
+        const G = GT(),
+          dw = dow();
+        h += `<h2>Metas de horas</h2><div class="cg">${ch("Hoje", tdy(), G / 7, G / 7)}${ch("Semana", wm, G, (G * dw) / 7)}${ch("Ano", mins(0, new Date().getFullYear() + "-01-01"), G * 52, (G * 52 * doy()) / 365)}</div>`;
+        h += sug
+          ? `<div class="card hd" onclick="go('${sug.id}')"><i style="background:${sug.c}"></i><div style="flex:1"><div class="mu">${cc[0]} · ${cc[1]}</div><b>Comece por ${sug.n}</b></div></div>`
+          : `<div class="card"><b>Teoria concluída!</b><div class="mu">Agora: questões (ciclo 5) e revisão dos erros (ciclo 6).</div></div>`;
+        [
+          ["Bloco I", 1],
+          ["Bloco II", 2],
+          ["Bloco III", 3],
+          ["Outras matérias", 0],
+        ].forEach(([r, b]) => {
+          const L = D.filter((d) => d.b === b);
+          if (!L.length) return;
+          h += `<h2>${r}${b ? ` · ${L.length * 10} questões` : ""}</h2>`;
+          L.forEach((d) => {
+            h += `<div class="card" onclick="go('${d.id}')" style="cursor:pointer"><div class="hd"><i style="background:${d.c}"></i><b>${d.n}</b><span>${pct(d)}%</span></div>${bar(pct(d), d.c)}${wl(d)}</div>`;
+          });
+        });
+        return h;
+      }
+
+      function vM() {
+        const wk = wkStart(),
+          dw = dow();
+        return (
+          `<div class="tt"><h1>Matérias</h1><button class="plus" aria-label="Nova matéria" onclick="am()">${addM ? "×" : "+"}</button></div><p class="mu">★ = prioridade. Toque na matéria para editar meta, subtemas e tópicos.</p>` +
+          (addM
+            ? `<div class="card"><b>Nova matéria</b><div class="add"><input id="nm" placeholder="Nome da matéria" onkeydown="if(event.key==='Enter')an()"><button onclick="an()">Adicionar</button></div></div>`
+            : "") +
+          D.map((d) => {
+            const a = S.topics[d.id],
+              o = open === d.id,
+              g = wH(d) * 60,
+              s = st(mins(d.id, wk), (g * dw) / 7);
+            return (
+              `<div class="card" id="c-${d.id}"><div class="hd" onclick="tg('${d.id}')"><i style="background:${d.c}"></i><b>${d.n}</b><span title="${SL[s]}" style="color:${SC[s]}">●</span><span>${pct(d)}%</span><button class="ib${delArm === d.id ? " arm" : ""}" aria-label="Excluir matéria" onclick="dl(event,'${d.id}')">${delArm === d.id ? "Excluir?" : "🗑"}</button></div>` +
+              (o
+                ? `<div style="margin-top:10px"><div class="mt"><span>Meta semanal</span><input type="number" min="0.5" step="0.5" value="${wH(d)}" onchange="sw('${d.id}',this.value)"><span>h · ${Math.round(g / 7)} min/dia · <b style="color:${SC[s]}">${SL[s]}</b></span></div>` +
+                  a.map((x, i) => sub(d, x, i)).join("") +
+                  `<div class="add"><input id="ns-${d.id}" placeholder="Novo subtema (ex.: Frações)" onkeydown="if(event.key==='Enter')as('${d.id}')"><button onclick="as('${d.id}')">Adicionar</button></div></div>`
+                : "") +
+              `</div>`
+            );
+          }).join("")
+        );
+      }
+      function sub(d, x, i) {
+        const k = x.k,
+          key = d.id + ":" + i,
+          o = OS[key],
+          n = lf([x]),
+          nd = n.filter((z) => z.d).length;
+        return (
+          `<div class="sb"><div class="hd" onclick="ts('${key}')">${k.length ? "" : `<input type="checkbox" ${x.d ? "checked" : ""} onclick="event.stopPropagation()" onchange="cs('${d.id}',${i})">`}<b class="${!k.length && x.d ? "dn" : ""}">${esc(x.t)}</b><span class="mu">${nd}/${n.length}</span><button class="ib${delArm === key ? " arm" : ""}" aria-label="Excluir subtema" onclick="dsb(event,'${d.id}',${i})">${delArm === key ? "Excluir?" : "×"}</button></div>` +
+          (o
+            ? k
+                .map(
+                  (z, j) =>
+                    `<label class="tp"><input type="checkbox" ${z.d ? "checked" : ""} onchange="ck('${d.id}',${i},${j})"><span class="${z.d ? "dn" : ""}">${esc(z.t)}</span><button class="g" aria-label="Remover tópico" onclick="rm(event,'${d.id}',${i},${j})">×</button></label>`,
+                )
+                .join("") +
+              `<div class="add"><input id="in-${key}" placeholder="Novo tópico" onkeydown="if(event.key==='Enter')ad('${d.id}',${i})"><button onclick="ad('${d.id}',${i})">+</button></div>`
+            : "") +
+          `</div>`
+        );
+      }
+      const nz = (s) =>
+        String(s || "")
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+      function vV() {
+        const A = [...new Set(S.provas.map((p) => p.a).filter(Boolean))]
+            .sort()
+            .reverse(),
+          B = [...new Set(S.provas.map((p) => p.b).filter(Boolean))].sort();
+        return (
+          `<div class="tt"><h1>Provas</h1><button class="plus" aria-label="Adicionar prova" onclick="ta()">${addP ? "×" : "+"}</button></div><p class="mu">Busque provas e gabaritos em PDF. Para imprimir, abra o PDF e use Ctrl+P (ou o menu do navegador).</p>` +
+          (addP ? formP() : "") +
+          `<div class="card"><input id="pq" type="search" placeholder="Buscar: ENEM 2026, banca, cargo, matéria..." value="${esc(pq)}" oninput="pq=this.value;fp()"><div class="add"><select aria-label="Banca" onchange="pb=this.value;fp()"><option value="">Todas as bancas</option>${B.map((x) => `<option ${x === pb ? "selected" : ""}>${esc(x)}</option>`).join("")}</select><select aria-label="Ano" onchange="pa=this.value;fp()"><option value="">Todos os anos</option>${A.map((x) => `<option ${x === pa ? "selected" : ""}>${esc(x)}</option>`).join("")}</select></div></div><div id="pl">${lp()}</div>`
+        );
+      }
+      function lp() {
+        const q = nz(pq).split(/\s+/).filter(Boolean);
+        const r = S.provas.filter(
+          (p) =>
+            (!pb || p.b === pb) &&
+            (!pa || p.a === pa) &&
+            q.every((w) =>
+              nz([p.t, p.b, p.o, p.c, p.a, p.m].join(" ")).includes(w),
+            ),
+        );
+        return (
+          (r.length
+            ? `<p class="mu">${r.length} prova${r.length > 1 ? "s" : ""} encontrada${r.length > 1 ? "s" : ""}</p>`
+            : '<div class="card mu">Nada encontrado. Toque no + para cadastrar uma prova com o link do PDF.</div>') +
+          r
+            .map(
+              (p) =>
+                `<div class="card"><b>${esc(p.t)}</b><div class="mu">${[p.b, p.o, p.c, p.a, p.m].filter(Boolean).map(esc).join(" · ")}</div>${p.n ? `<div class="mu" style="margin-top:4px">${esc(p.n)}</div>` : ""}<div class="row" style="justify-content:flex-start"><a class="bt" href="${esc(p.l)}" target="_blank" rel="noopener noreferrer">Abrir prova</a>${p.g ? `<a class="bt g" href="${esc(p.g)}" target="_blank" rel="noopener noreferrer">Gabarito</a>` : ""}<button class="ib${delArm === "p:" + p.id ? " arm" : ""}" aria-label="Excluir prova" onclick="dp(event,'${p.id}')">${delArm === "p:" + p.id ? "Excluir?" : "🗑"}</button></div></div>`,
+            )
+            .join("")
+        );
+      }
+      const fp = () => {
+        $("#pl").innerHTML = lp();
+      };
+      const formP = () =>
+        `<div class="card"><b>Nova prova</b><div class="fg"><input id="f-t" placeholder="Título (ex.: Prova Agente 2024)"><input id="f-b" placeholder="Banca (ex.: Cebraspe)"><input id="f-o" placeholder="Órgão (ex.: Polícia Civil de PE)"><input id="f-c" placeholder="Cargo"><input id="f-a" inputmode="numeric" placeholder="Ano (ex.: 2024)"><input id="f-m" placeholder="Matérias (ex.: Português, Lógica)"><input id="f-l" placeholder="Link do PDF (https://... ou provas/arquivo.pdf)"><input id="f-g" placeholder="Link do gabarito (opcional)"></div><div class="row"><button onclick="ap()">Salvar prova</button></div></div>`;
+      function ta() {
+        addP = !addP;
+        render();
+      }
+      function ap() {
+        const g = (k) =>
+            $("#f-" + k)
+              .value.trim()
+              .slice(0, 200),
+          ok = (u) => /^(https?:\/\/|provas\/)/i.test(u);
+        const p = {
+          id: "p" + Date.now(),
+          t: g("t"),
+          b: g("b"),
+          o: g("o"),
+          c: g("c"),
+          a: g("a"),
+          m: g("m"),
+          l: g("l"),
+          g: g("g"),
+        };
+        if (!p.t || !ok(p.l)) {
+          toast("Informe o título e um link válido (https:// ou provas/...)");
+          return;
+        }
+        if (p.g && !ok(p.g)) {
+          toast("O link do gabarito é inválido");
+          return;
+        }
+        S.provas.unshift(p);
+        save();
+        addP = 0;
+        render();
+        toast("Prova salva");
+      }
+      function dp(e, id) {
+        e.stopPropagation();
+        const k = "p:" + id;
+        if (delArm !== k) {
+          delArm = k;
+          render();
+          setTimeout(() => {
+            if (delArm === k) {
+              delArm = null;
+              render();
+            }
+          }, 3000);
+          return;
+        }
+        delArm = null;
+        S.provas = S.provas.filter((x) => x.id !== id);
+        save();
+        render();
+        toast("Prova excluída");
+      }
+
+      let T = { run: 0, left: 1500, dur: 1500, end: 0, disc: "rl" };
+      const cl = (s) =>
+        String(Math.floor(s / 60)).padStart(2, "0") +
+        ":" +
+        String(s % 60).padStart(2, "0");
+      function vT() {
+        return `<h1>Foco</h1><div class="card" style="text-align:center"><select id="ds" onchange="T.disc=this.value">${D.map((d) => `<option value="${d.id}" ${T.disc === d.id ? "selected" : ""}>${d.n}</option>`).join("")}</select>
+ <div class="big" id="tm">${cl(T.left)}</div>
+ <div class="row">${[25, 50, 90].map((m) => `<button class="g" onclick="pre(${m})">${m} min</button>`).join("")}</div>
+ <div class="row"><button onclick="tgl()">${T.run ? "Pausar" : "Iniciar"}</button><button class="g" onclick="fin()">Finalizar e registrar</button></div></div>
+ <div class="card"><b>Registrar tempo manualmente</b><div class="add"><input id="mm" type="number" min="1" placeholder="Minutos"><button onclick="man()">Registrar</button></div></div>
+ <div class="card"><b>Últimos registros</b>${
+   S.log
+     .slice(-6)
+     .reverse()
+     .map(
+       (l) =>
+         `<div class="lg">${dn(l.d)}<span>${l.m} min · ${l.day.slice(8)}/${l.day.slice(5, 7)}</span></div>`,
+     )
+     .join("") || '<p class="mu">Nenhuma sessão registrada ainda.</p>'
+ }</div>`;
+      }
+
+      function vA() {
+        return `<h1>Ajustes</h1>
+ <div class="card"><b>Data da prova</b><div class="add"><input id="ex" type="date" value="${S.exam}" onchange="S.exam=this.value;save();toast('Data salva')"></div></div>
+ <div class="card"><b>Cidade do clima</b><p class="mu">Atual: ${esc(S.city || "Camaragibe - Pernambuco")}</p><div class="add"><input id="cy" placeholder="Ex.: Recife" onkeydown="if(event.key==='Enter')sc()"><button onclick="sc()">Buscar</button></div></div>
+ <div class="card"><b>Tema</b><div class="row"><button class="g" onclick="th('light')">Claro</button><button class="g" onclick="th('dark')">Escuro</button></div></div>
+ <div class="card"><b>Backup</b><p class="mu">Seus dados ficam salvos só neste aparelho. Copie o texto abaixo para levar ao outro.</p>
+ <textarea id="bk" aria-label="Backup"></textarea><div class="row"><button class="g" onclick="bkGen()">Gerar backup</button><button class="g" onclick="bkImp()">Importar</button></div></div>
+ <div class="card"><button class="g" onclick="if(confirm('Apagar tudo e recomeçar?')){try{localStorage.removeItem(K)}catch(e){}load();render()}">Apagar todos os dados</button></div>`;
+      }
+
+      function render() {
+        $("#v").innerHTML = { p: vP, m: vM, t: vT, v: vV, a: vA }[tab]();
+        document
+          .querySelectorAll("nav button")
+          .forEach((b) => b.classList.toggle("on", b.dataset.t === tab));
+      }
+      document.querySelector("nav").onclick = (e) => {
+        const t = e.target.dataset.t;
+        if (t) {
+          tab = t;
+          render();
+          scrollTo(0, 0);
+        }
+      };
+      function go(id) {
+        open = id;
+        tab = "m";
+        render();
+        const e = $("#c-" + id);
+        e && e.scrollIntoView();
+      }
+      function tg(id) {
+        open = open === id ? null : id;
+        render();
+      }
+      function am() {
+        addM = !addM;
+        render();
+        if (addM) $("#nm").focus();
+      }
+      function an() {
+        const n = $("#nm")
+          .value.replace(/[<>&"]/g, "")
+          .trim()
+          .slice(0, 60);
+        if (!n) return;
+        const id = "c" + Date.now();
+        S.disc.push({
+          id,
+          n,
+          b: 0,
+          w: 6,
+          c: ["#7c4dff", "#00a896", "#e07a1f", "#c2185b", "#2e7d32"][
+            S.disc.length % 5
+          ],
+        });
+        S.topics[id] = [];
+        save();
+        addM = 0;
+        open = id;
+        render();
+        toast("Matéria adicionada");
+      }
+      function dl(e, id) {
+        e.stopPropagation();
+        if (delArm !== id) {
+          delArm = id;
+          render();
+          setTimeout(() => {
+            if (delArm === id) {
+              delArm = null;
+              render();
+            }
+          }, 3000);
+          return;
+        }
+        delArm = null;
+        S.disc = S.disc.filter((d) => d.id !== id);
+        D = S.disc;
+        delete S.topics[id];
+        if (open === id) open = null;
+        if (T.disc === id) T.disc = D[0] ? D[0].id : "";
+        save();
+        render();
+        toast("Matéria excluída");
+      }
+      function ts(k) {
+        OS[k] = !OS[k];
+        render();
+      }
+      function ck(id, i, j) {
+        S.topics[id][i].k[j].d ^= 1;
+        save();
+        render();
+      }
+      function cs(id, i) {
+        S.topics[id][i].d ^= 1;
+        save();
+        render();
+      }
+      function rm(e, id, i, j) {
+        e.preventDefault();
+        S.topics[id][i].k.splice(j, 1);
+        save();
+        render();
+      }
+      function ad(id, i) {
+        const e = document.getElementById("in-" + id + ":" + i),
+          v = e.value.trim().slice(0, 120);
+        if (!v) return;
+        S.topics[id][i].k.push({ t: v, d: 0 });
+        OS[id + ":" + i] = 1;
+        save();
+        render();
+      }
+      function as(id) {
+        const v = $("#ns-" + id)
+          .value.trim()
+          .slice(0, 80);
+        if (!v) return;
+        S.topics[id].push({ t: v, l: 0, d: 0, k: [] });
+        OS[id + ":" + (S.topics[id].length - 1)] = 1;
+        save();
+        render();
+      }
+      function dsb(e, id, i) {
+        e.stopPropagation();
+        const k = id + ":" + i;
+        if (delArm !== k) {
+          delArm = k;
+          render();
+          setTimeout(() => {
+            if (delArm === k) {
+              delArm = null;
+              render();
+            }
+          }, 3000);
+          return;
+        }
+        delArm = null;
+        S.topics[id].splice(i, 1);
+        OS = {};
+        save();
+        render();
+        toast("Subtema excluído");
+      }
+      function sw(id, v) {
+        D.find((x) => x.id === id).w = Math.max(0.5, +v || 6);
+        save();
+        render();
+      }
+      function th(t) {
+        S.theme = t;
+        document.documentElement.dataset.theme = t;
+        save();
+      }
+      function lg(d, m) {
+        S.log.push({ d, m, day: iso() });
+        save();
+      }
+      function pre(m) {
+        T.run = 0;
+        T.dur = T.left = m * 60;
+        render();
+      }
+      function tgl() {
+        if (T.run) T.run = 0;
+        else {
+          if (T.left <= 0) T.left = T.dur;
+          T.end = Date.now() + T.left * 1e3;
+          T.run = 1;
+        }
+        render();
+      }
+      function fin() {
+        const m = Math.round((T.dur - T.left) / 60);
+        if (m >= 1) {
+          lg(T.disc, m);
+          toast(m + " min registrados");
+        } else toast("Estude pelo menos 1 minuto para registrar");
+        T.run = 0;
+        T.left = T.dur;
+        render();
+      }
+      function man() {
+        const m = Math.round(+$("#mm").value);
+        if (m > 0) {
+          lg(T.disc, m);
+          toast("Registrado");
+          render();
+        }
+      }
+      function bkGen() {
+        const t = $("#bk");
+        t.value = JSON.stringify(S);
+        t.select();
+        try {
+          navigator.clipboard.writeText(t.value);
+          toast("Copiado");
+        } catch (e) {}
+      }
+      function bkImp() {
+        try {
+          const o = JSON.parse($("#bk").value);
+          if (!o.topics || !o.log) throw 0;
+          S = o;
+          save();
+          load();
+          toast("Backup importado");
+          render();
+        } catch (e) {
+          toast("Texto de backup inválido");
+        }
+      }
+      setInterval(() => {
+        if (!T.run) return;
+        T.left = Math.max(0, Math.round((T.end - Date.now()) / 1e3));
+        const e = $("#tm");
+        if (e) e.textContent = cl(T.left);
+        document.title = cl(T.left) + " · Foco";
+        if (!T.left) {
+          T.run = 0;
+          lg(T.disc, Math.round(T.dur / 60));
+          T.left = T.dur;
+          document.title = "Meu Plano de Estudos";
+          try {
+            navigator.vibrate && navigator.vibrate([300, 150, 300]);
+          } catch (e) {}
+          toast("Sessão concluída e registrada!");
+          render();
+        }
+      }, 500);
+      let lt = 0,
+        dk = iso();
+      async function gw(force) {
+        const w = S.wc;
+        if (
+          !force &&
+          ((w && Date.now() - w.at < 18e5) || Date.now() - lt < 18e5)
+        )
+          return;
+        lt = Date.now();
+        try {
+          const l = S.loc || { lat: -8.0206, lon: -34.9789 };
+          const r = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${l.lat}&longitude=${l.lon}&current=temperature_2m,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1`,
+          );
+          const j = await r.json();
+          S.wc = {
+            t: j.current.temperature_2m,
+            c: j.current.weather_code,
+            mx: j.daily.temperature_2m_max[0],
+            mn: j.daily.temperature_2m_min[0],
+            at: Date.now(),
+          };
+          save();
+          if (tab === "p") render();
+        } catch (e) {}
+      }
+      async function sc() {
+        const v = $("#cy").value.trim();
+        if (!v) return;
+        try {
+          const r = await fetch(
+              "https://geocoding-api.open-meteo.com/v1/search?name=" +
+                encodeURIComponent(v) +
+                "&count=1&language=pt",
+            ),
+            j = await r.json(),
+            x = j.results && j.results[0];
+          if (!x) {
+            toast("Cidade não encontrada");
+            return;
+          }
+          S.loc = { lat: x.latitude, lon: x.longitude };
+          S.city = x.name + (x.admin1 ? " - " + x.admin1 : "");
+          S.wc = null;
+          save();
+          toast("Cidade salva");
+          render();
+          gw(true);
+        } catch (e) {
+          toast("Sem conexão para buscar a cidade");
+        }
+      }
+      function tick() {
+        if (iso() !== dk) dk = iso();
+        if (tab === "p") render();
+        gw();
+      }
+      setInterval(() => {
+        if (iso() !== dk) tick();
+        else gw();
+      }, 6e4);
+      document.addEventListener("visibilitychange", () => {
+        if (!document.hidden) tick();
+      });
+      load();
+      render();
+      gw();
+    </script>
+  </body>
+</html>
